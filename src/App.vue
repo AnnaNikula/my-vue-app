@@ -1,16 +1,31 @@
 <script>
-  import CitiesList from "./components/CitiesList.vue";
-  import HelloWorld from "./components/HelloWorld.vue";
+  import CitiesList from "./components/RegisterVue.vue";
+  import HelloWorld from "./components/FetchVue.vue";
 
   export default {
     components: {
       CitiesList,
       HelloWorld
-    }
-  };
+   
+<template>
+  <header>
+    <nav>
+      <router-link to="/">Register</router-link>
+      <router-link to="/about">Fetch</router-link>
+    </nav>
+  </header>
+  <router-view />
+</template>
+
+<script>
+export default {
+  name: "App"
+};
 </script>
 
-<template>
-  <HelloWorld msg="Hello World!" />
-  <CitiesList />
-</template>
+<style scoped>
+nav {
+  display: flex;
+  gap: 10px;
+}
+</style>
