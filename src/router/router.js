@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
-
-import RegisterVue from "../views/RegisterVue.vue";
-import FetchVue from "../views/FetchVue.vue";
+import RegisterVue from "./src/components/RegisterVue.vue";
+import FetchVue from "./src/components/FetchVue.vue";
 
 const routes = [
   { path: "/register", component: RegisterVue },

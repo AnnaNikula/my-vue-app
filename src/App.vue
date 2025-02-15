@@ -1,25 +1,23 @@
-<script>
-  import CitiesList from "./components/RegisterVue.vue";
-  import HelloWorld from "./components/FetchVue.vue";
-
-  export default {
-    components: {
-      CitiesList,
-      HelloWorld
-   
 <template>
   <header>
     <nav>
-      <router-link to="/">Register</router-link>
-      <router-link to="/about">Fetch</router-link>
+      <router-link to="/register">Register</router-link>
+      <router-link to="/fetch">Fetch Data</router-link>
     </nav>
   </header>
   <router-view />
 </template>
 
 <script>
+import RegisterVue from "./views/RegisterVue.vue";
+import FetchVue from "./views/FetchVue.vue";
+
 export default {
-  name: "App"
+  name: "App",
+  components: {
+    RegisterVue,
+    FetchVue,
+  },
 };
 </script>
 
