@@ -1,15 +1,15 @@
 <template>
   <div>
-    <h1>Register Page</h1>
+    <h1>Welcome to the Home Page</h1>
   </div>
 </template>
 
 <script>
 export default {
-  name: "RegisterVue",
+  name: "HomeVue",
 };
 </script>
 
 <style scoped>
-
+/* Add your styles here */
 </style>

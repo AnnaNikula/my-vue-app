@@ -79,7 +79,8 @@ button:hover {
 }
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  outline: 4px solid blue; /* Fallback for Firefox */
+  outline: 4px auto -webkit-focus-ring-color; /* WebKit */
 }
 
 @media (prefers-color-scheme: light) {

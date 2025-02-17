@@ -1,10 +1,28 @@
 import { createRouter, createWebHistory } from "vue-router";
-import RegisterVue from "./src/components/RegisterVue.vue";
-import FetchVue from "./src/components/FetchVue.vue";
+import RegisterVue from "../components/RegisterVue.vue";
+import RegistrationForm from "../components/RegistrationForm.vue";
+import HomeVue from "../components/HomeVue.vue"; // Ensure this component exists
 
 const routes = [
-  { path: "/register", component: RegisterVue },
-  { path: "/fetch", component: FetchVue },
+  {
+    path: "/",
+    redirect: "/register", // Redirect root path to /register
+  },
+  {
+    path: "/home",
+    name: "Home",
+    component: HomeVue,
+  },
+  {
+    path: "/register",
+    name: "Register",
+    component: RegisterVue,
+  },
+  {
+    path: "/registration-form",
+    name: "RegistrationForm",
+    component: RegistrationForm,
+  },
 ];
 
 const router = createRouter({

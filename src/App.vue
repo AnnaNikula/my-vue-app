@@ -1,22 +1,23 @@
 <template>
-  <header>
-    <nav>
-      <router-link to="/register">Register</router-link>
-      <router-link to="/fetch">Fetch Data</router-link>
-    </nav>
-  </header>
-  <router-view />
+  <div id="app">
+    <Header />
+    <router-view></router-view>
+    <Footer />
+  </div>
 </template>
 
 <script>
-import RegisterVue from "./views/RegisterVue.vue";
-import FetchVue from "./views/FetchVue.vue";
+import Header from "./components/Header.vue";
+import Footer from "./components/Footer.vue";
 
 export default {
   name: "App",
   components: {
-    RegisterVue,
-    FetchVue,
+    Header,
+    Footer,
+  },
+  mounted() {
+    console.log("App component has been mounted.");
   },
 };
 </script>
