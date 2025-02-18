@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <Navbar />
-    <h1>Register</h1>
-    <router-link to="/register">registrera användare</router-link>
+    <h1>Film Bibliotek</h1>
+
     <router-view></router-view>
-    <RegistrationForm />
+    
     <Footer />
   </div>
 </template>

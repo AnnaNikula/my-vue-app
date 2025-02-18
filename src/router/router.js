@@ -5,7 +5,7 @@ import HomeVue from "../components/HomeVue.vue"; // Se till att denna komponent 
 const routes = [
   {
     path: "/",
-    redirect: "/register", // Omdirigera rotvägen till /register
+    redirect: "/home", // Omdirigera rotvägen till /register
   },
   {
     path: "/home",
@@ -14,7 +14,7 @@ const routes = [
   },
 
   {
-    path: "/registration-form",
+    path: "/register",
     name: "RegistrationForm",
     component: RegistrationForm,
   },
