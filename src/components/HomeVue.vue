@@ -22,7 +22,7 @@
       <button @click="registerUser" class="register-button">Registrera</button>
     </div>
 
-    <!--Lista av uppgifter som lämnas av användare-->
+    <!-- Lista av uppgifter som lämnas av användare -->
     <h3>Registrerade användare</h3>
     <h4>Kontrollera gärna alla uppgifter</h4>
     <div>
@@ -34,7 +34,7 @@
       </ul>
     </div>
     <div>
-      <!-- Add your new template code here -->
+      <!-- Lägg till din nya mallkod här -->
     </div>
   </div>
   <div class="home-layout"></div>
@@ -42,7 +42,7 @@
 
 <script>
 export default {
-  name: "HomeVue", // Ensure this matches the component name
+  name: "HomeVue", // Se till att detta matchar komponentnamnet
   data() {
     return {
       user: {
@@ -83,17 +83,17 @@ export default {
       }
     },
     adjustLayout() {
-      // Logic to fix layout issues
+      // Logik för att fixa layoutproblem
     },
     fixLayout() {
-      // Logic to fix layout issues
+      // Logik för att fixa layoutproblem
     },
   },
 };
 </script>
 
 <style scoped>
-/* Add your new styles here */
+/* Lägg till dina nya stilar här */
 .container {
   max-width: 600px;
   margin: auto;
@@ -161,6 +161,6 @@ li {
 .home-layout {
   display: flex;
   flex-direction: column;
-  /* Additional styles to fix layout issues */
+  /* Ytterligare stilar för att fixa layoutproblem */
 }
 </style>

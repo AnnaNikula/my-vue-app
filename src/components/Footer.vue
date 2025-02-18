@@ -17,7 +17,7 @@
 export default {
   name: "Footer",
   mounted() {
-    console.log("Footer component has been mounted.");
+    console.log("Footer-komponenten har monterats.");
   },
 };
 </script>

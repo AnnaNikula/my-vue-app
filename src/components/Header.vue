@@ -8,7 +8,7 @@
         <li><router-link to="/">Hem</router-link></li>
         <li><router-link to="/register">Register</router-link></li>
         <li>
-          <router-link to="/registration-form">Registrera Elev</router-link>
+          <router-link to="/registration-form">Registrera ny användare</router-link>
         </li>
         <li><a href="#about">Om Oss</a></li>
         <li><a href="#contact">Kontakt</a></li>

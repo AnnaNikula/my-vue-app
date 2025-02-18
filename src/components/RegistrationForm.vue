@@ -3,9 +3,9 @@
     <h2>Registrera Användare</h2>
     <div class="form-container">
       <form @submit.prevent="validateForm">
-        <!-- Elev uppgifter -->
-        <div class="form-section student">
-          <h3>Fyll in formulär</h3>
+        <!-- Användare uppgifter -->
+        <div class="form-section">
+          <h3>Fyll i formuläret</h3>
           <label for="namn">Namn:</label>
           <input v-model="user.Namn" id="namn" required />
           <label for="efternamn">Efternamn:</label>
@@ -22,7 +22,6 @@
             required
           />
         </div>
-        <!-- Add your new form elements here -->
       </form>
     </div>
     <div class="button-container">
@@ -79,22 +78,18 @@ export default {
       }
     },
     validateForm() {
-      // Improved form validation logic
       if (this.isValid()) {
         this.submitForm();
       } else {
         this.showValidationErrors();
       }
     },
-    isValid() {
-      // Logic to check if the form is valid
-    },
-    showValidationErrors() {
-      // Logic to display validation errors
-    },
-    submitForm() {
-      // Logic to submit the form
-    },
+    isValid() {},
+    showValidationErrors() {},
+    submitForm() {},
+  },
+  mounted() {
+    console.log("RegistrationForm component has been mounted.");
   },
 };
 </script>
@@ -109,7 +104,7 @@ export default {
 
 .form-container {
   display: flex;
-  justify-content: center; /* Ändrad från space-between till center */
+  justify-content: center;
   gap: 20px;
   padding: 20px;
   border-radius: 10px;
@@ -119,8 +114,8 @@ export default {
 .form-section {
   display: flex;
   flex-direction: column;
-  width: 100%; /* Ändrad från 48% till 100% */
-  max-width: 500px; /* Lagt till max-width för att begränsa bredden */
+  width: 100%;
+  max-width: 500px;
   padding: 15px;
   background: white;
   border-radius: 8px;
@@ -173,5 +168,5 @@ li {
   }
 }
 
-/* Add your new styles here */
+/* Lägg till dina nya stilar här */
 </style>
