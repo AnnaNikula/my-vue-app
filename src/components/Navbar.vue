@@ -3,7 +3,7 @@
     <ul>
       <li><router-link to="/">Hem</router-link></li>
       <li><router-link to="/register">Register</router-link></li>
-      <li><router-link to="/register-student">Registrera elev</router-link></li>
+      <li><router-link to="/register-student">Film</router-link></li>
       <li><router-link to="/about">Om Oss</router-link></li>
       <li><router-link to="/contact">Kontakt</router-link></li>
     </ul>
