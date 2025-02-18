@@ -37,7 +37,6 @@
       <!-- Lägg till din nya mallkod här -->
     </div>
   </div>
-  <div class="home-layout"></div>
 </template>
 
 <script>
@@ -54,10 +53,6 @@ export default {
       },
       users: [],
     };
-  },
-  mounted() {
-    this.adjustLayout();
-    this.fixLayout();
   },
   methods: {
     registerUser() {
