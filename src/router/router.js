@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import RegistrationForm from "../components/RegistrationForm.vue";
+import FilmList from "../components/FilmList.vue";
 import HomeVue from "../components/HomeVue.vue"; // Se till att denna komponent finns
 
 const routes = [
@@ -17,6 +18,11 @@ const routes = [
     path: "/register",
     name: "RegistrationForm",
     component: RegistrationForm,
+  },
+  {
+    path: "/film",
+    name: "FilmList",
+    component: FilmList,
   },
 ];
 

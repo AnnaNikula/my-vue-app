@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <h1>Welcome to the Home Page</h1>
-    <h2>Registrera användare</h2>
+    <h1>Logga in</h1>
+
     <div class="form-container">
       <!-- Elev uppgifter -->
       <div class="form-section student">

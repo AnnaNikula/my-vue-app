@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <h1>Register Page</h1>
-    <h2>Registrera Elev</h2>
+    <h1>Registera ny användare</h1>
+
     <div class="form-container">
       <form @submit.prevent="validateForm">
         <!-- Användare uppgifter -->

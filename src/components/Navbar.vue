@@ -3,9 +3,7 @@
     <ul>
       <li><router-link to="/">Hem</router-link></li>
       <li><router-link to="/register">Register</router-link></li>
-      <li><router-link to="/FilmList">Film</router-link></li>
-      <li><router-link to="/about">Om Oss</router-link></li>
-      <li><router-link to="/contact">Kontakt</router-link></li>
+      <li><router-link to="/film">Film</router-link></li>
     </ul>
   </nav>
 </template>
