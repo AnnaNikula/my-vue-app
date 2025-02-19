@@ -59,8 +59,8 @@ export default {
         this.user.username &&
         this.user.password
       ) {
-        const newUser = { ...this.user, id: this.users.length + 1 };
-        this.users.push(newUser);
+        const newUser = { ...this.user, id: this.$root.$data.users.length + 1 };
+        this.$root.$data.users.push(newUser);
         this.user = {
           Namn: "",
           Efternamn: "",
@@ -70,6 +70,9 @@ export default {
         };
       }
     },
+  },
+  mounted() {
+    this.users = this.$root.$data.users;
   },
 };
 </script>
