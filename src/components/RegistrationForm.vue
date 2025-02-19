@@ -3,7 +3,7 @@
     <h1>Registera ny användare</h1>
 
     <div class="form-container">
-      <form @submit.prevent="validateForm">
+      <form @submit.prevent="registerUser">
         <!-- Användare uppgifter -->
         <div class="form-section">
           <h3>Fyll i formuläret</h3>
@@ -16,12 +16,7 @@
           <label for="username">Användarnamn:</label>
           <input v-model="user.username" id="username" required />
           <label for="password">Skapa Lösenord:</label>
-          <input
-            type="password"
-            v-model="user.password"
-            id="password"
-            required
-          />
+          <input type="text" v-model="user.password" id="password" required />
         </div>
       </form>
     </div>
@@ -32,19 +27,9 @@
     <h4>Kontrollera gärna alla uppgifter</h4>
     <ul>
       <li v-for="user in users" :key="user.id">
-        <strong>Elev:</strong> {{ user.Namn }} {{ user.Efternamn }} - Klass
-        {{ user.classNumber }}<br />
+        <strong>Namn:</strong> {{ user.Namn }} {{ user.Efternamn }}<br />
         <strong>E-post:</strong> {{ user.email }}<br />
-        <strong>Telefonnummer:</strong> {{ user.phoneNumber }}<br />
-        <strong>Förälder:</strong> {{ user.parent.Namn }}
-        {{ user.parent.Efternamn }}<br />
-        <strong>Förälders Telefonnummer:</strong> {{ user.parent.phoneNumber
-        }}<br />
-        <strong>Förälders E-post:</strong> {{ user.parent.email }}<br />
-        <strong>Vill ha information via SMS:</strong>
-        {{ user.parent.receiveSms ? "Ja" : "Nej" }}<br />
-        <strong>Vill ha information via E-post:</strong>
-        {{ user.parent.receiveEmail ? "Ja" : "Nej" }}
+        <strong>Användarnamn:</strong> {{ user.username }}<br />
       </li>
     </ul>
   </div>
@@ -59,67 +44,32 @@ export default {
         Namn: "",
         Efternamn: "",
         email: "",
-        classNumber: "",
-        phoneNumber: "",
         username: "",
         password: "",
-      },
-      parent: {
-        Namn: "",
-        Efternamn: "",
-        phoneNumber: "",
-        email: "",
-        receiveSms: false,
-        receiveEmail: false,
       },
       users: [],
     };
   },
   methods: {
-    async registerUser() {
+    registerUser() {
       if (
         this.user.Namn &&
         this.user.Efternamn &&
         this.user.email &&
-        this.user.classNumber &&
-        this.user.phoneNumber &&
         this.user.username &&
-        this.user.password &&
-        this.parent.Namn &&
-        this.parent.Efternamn &&
-        this.parent.phoneNumber &&
-        this.parent.email
+        this.user.password
       ) {
-        const newUser = {
-          ...this.user,
-          parent: this.parent,
-          id: this.users.length + 1,
-        };
+        const newUser = { ...this.user, id: this.users.length + 1 };
         this.users.push(newUser);
         this.user = {
           Namn: "",
           Efternamn: "",
           email: "",
-          classNumber: "",
-          phoneNumber: "",
           username: "",
           password: "",
         };
       }
     },
-    validateForm() {
-      if (this.isValid()) {
-        this.submitForm();
-      } else {
-        this.showValidationErrors();
-      }
-    },
-    isValid() {},
-    showValidationErrors() {},
-    submitForm() {},
-  },
-  mounted() {
-    console.log("RegistrationForm component has been mounted.");
   },
 };
 </script>
@@ -151,23 +101,11 @@ export default {
   border-radius: 8px;
 }
 
-.student {
-  border-left: 5px solid #4caf50;
-}
-
-.parent {
-  border-left: 5px solid #2196f3;
-}
-
 input {
   margin-bottom: 10px;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 5px;
-}
-
-.checkbox-container {
-  margin-top: 10px;
 }
 
 .button-container {
@@ -205,6 +143,4 @@ li {
     width: 100%;
   }
 }
-
-/* Lägg till dina nya stilar här */
 </style>
