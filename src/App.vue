@@ -4,31 +4,26 @@
     <h1>Film Bibliotek</h1>
 
     <router-view></router-view>
-    
+
     <Footer />
   </div>
 </template>
 
 <script>
 import Navbar from "./components/Navbar.vue";
-import Header from "./components/Header.vue";
 import Footer from "./components/Footer.vue";
-import RegistrationForm from "./components/RegistrationForm.vue";
 import HomeVue from "./components/HomeVue.vue";
-import Filmlist from "./components/FilmList.vue";
+import FilmList from "./components/FilmList.vue";
+import RegistrationForm from "./components/RegistrationForm.vue";
 
 export default {
   name: "App",
   components: {
     Navbar,
-    Header,
-    HomeVue,
     Footer,
+    HomeVue,
+    FilmList,
     RegistrationForm,
-    Filmlist,
-  },
-  mounted() {
-    console.log("App component has been mounted.");
   },
 };
 </script>

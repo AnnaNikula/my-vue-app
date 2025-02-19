@@ -7,11 +7,7 @@
       <ul>
         <li><router-link to="/">Hem</router-link></li>
         <li><router-link to="/register">Register</router-link></li>
-        <li>
-          <router-link to="/registration-form">Registrera ny användare</router-link>
-        </li>
-        <li><a href="#about">Om Oss</a></li>
-        <li><a href="#contact">Kontakt</a></li>
+        <li><router-link to="/film">Film</router-link></li>
       </ul>
     </nav>
   </header>
