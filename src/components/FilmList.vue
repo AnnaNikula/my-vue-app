@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h2>Kommande Filmer</h2>
+    <h2>Film Listan</h2>
 
     <!-- Knapp för att hämta filmdata -->
     <div class="button-group">

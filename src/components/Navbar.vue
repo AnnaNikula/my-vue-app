@@ -2,8 +2,8 @@
   <nav>
     <ul>
       <li><router-link to="/">Hem</router-link></li>
-      <li><router-link to="/register">Register</router-link></li>
-      <li><router-link to="/film">Film</router-link></li>
+      <li><router-link to="/register">Register Ny</router-link></li>
+      <li><router-link to="/film">Film Lista</router-link></li>
     </ul>
   </nav>
 </template>
