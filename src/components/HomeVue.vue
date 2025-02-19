@@ -28,12 +28,12 @@ export default {
   },
   methods: {
     loginUser() {
-      const user = this.$root.$data.users.find(
+      const user = this.$root.$users.find(
         (user) =>
           user.username === this.username && user.password === this.password
       );
       if (user) {
-        this.$router.push("/home");
+        this.$router.push("/film");
       } else {
         this.errorMessage = "Fel användarnamn eller lösenord";
       }
