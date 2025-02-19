@@ -19,23 +19,28 @@
 
     <!-- Detaljer för vald film -->
     <div v-if="selectedMovie" class="movie-details">
-      <h3>{{ selectedMovie.primaryTitle }}</h3>
-      <p><strong>År:</strong> {{ selectedMovie.startYear }}</p>
-      <p>
-        <strong>Kategori:</strong>
-        {{
-          selectedMovie.genres ? selectedMovie.genres.join(", ") : "Ingen genre"
-        }}
-      </p>
-      <p>
-        <strong>Skådespelare:</strong>
-        {{
-          selectedMovie.principalCredits
-            ? selectedMovie.principalCredits.join(", ")
-            : "Ingen information"
-        }}
-      </p>
-      <img :src="selectedMovie.imageUrl" alt="Movie Image" />
+      <div>
+        <h3>{{ selectedMovie.primaryTitle }}</h3>
+        <p><strong>År:</strong> {{ selectedMovie.startYear }}</p>
+        <p>
+          <strong>Kategori:</strong>
+          {{
+            selectedMovie.genres
+              ? selectedMovie.genres.join(", ")
+              : "Ingen genre"
+          }}
+        </p>
+        <p>
+          <strong>Skådespelare:</strong>
+          {{
+            selectedMovie.principalCredits
+              ? selectedMovie.principalCredits.join(", ")
+              : "Ingen information"
+          }}
+        </p>
+      </div>
+
+      <img :src="selectedMovie.primaryImage" alt="Finns ingen Movie Image" />
     </div>
 
     <!-- Filmlista i tabell -->
@@ -162,7 +167,14 @@ select {
 
 /* Stil för filmuppgifter */
 .movie-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   margin-top: 20px;
   text-align: left;
+  img {
+    width: 300px;
+    height: auto;
+  }
 }
 </style>
