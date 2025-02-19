@@ -4,8 +4,38 @@
 
     <!-- Knapp för att hämta filmdata -->
     <div class="button-group">
-      <button @click="fetchMovies">Hämta Filmer</button>
-      <button @click="showMovieDetails">Visa Filmdetaljer</button>
+      <button @click="fetchMovies">Hämta Film Lista</button>
+    </div>
+
+    <!-- Dropdown för filmer -->
+    <div class="dropdown-container" v-if="movies.length">
+      <label for="movie">Välj en film:</label>
+      <select id="movie" v-model="selectedMovie">
+        <option v-for="movie in movies" :key="movie.id" :value="movie">
+          {{ movie.primaryTitle }}
+        </option>
+      </select>
+    </div>
+
+    <!-- Detaljer för vald film -->
+    <div v-if="selectedMovie" class="movie-details">
+      <h3>{{ selectedMovie.primaryTitle }}</h3>
+      <p><strong>År:</strong> {{ selectedMovie.startYear }}</p>
+      <p>
+        <strong>Kategori:</strong>
+        {{
+          selectedMovie.genres ? selectedMovie.genres.join(", ") : "Ingen genre"
+        }}
+      </p>
+      <p>
+        <strong>Skådespelare:</strong>
+        {{
+          selectedMovie.principalCredits
+            ? selectedMovie.principalCredits.join(", ")
+            : "Ingen information"
+        }}
+      </p>
+      <img :src="selectedMovie.imageUrl" alt="Movie Image" />
     </div>
 
     <!-- Filmlista i tabell -->
@@ -29,20 +59,6 @@
         </tbody>
       </table>
     </div>
-
-    <!-- Dropdown för filmer -->
-    <div class="dropdown-container" v-if="movies.length">
-      <label for="movie">Välj en film:</label>
-      <select id="movie">
-        <option
-          v-for="movie in movies"
-          :key="movie.id"
-          :value="movie.primaryTitle"
-        >
-          {{ movie.primaryTitle }}
-        </option>
-      </select>
-    </div>
   </div>
 </template>
 
@@ -54,26 +70,21 @@ export default {
   name: "FilmList",
   setup() {
     const movies = ref([]);
-    const movieTitles = ref([]);
+    const selectedMovie = ref(null);
 
     const fetchMovies = async () => {
       try {
         const movieData = await fetchMovieData();
         movies.value = movieData || [];
-        movieTitles.value = movies.value.map((movie) => movie.primaryTitle);
       } catch (error) {
         console.error("Fel vid hämtning av filmer:", error);
       }
     };
 
-    const showMovieDetails = () => {
-      console.log("Filmuppgifter visas:", movies.value);
-    };
-
     return {
       movies,
+      selectedMovie,
       fetchMovies,
-      showMovieDetails,
     };
   },
 };
@@ -147,5 +158,11 @@ select {
   font-size: 16px;
   border-radius: 5px;
   border: 1px solid #ddd;
+}
+
+/* Stil för filmuppgifter */
+.movie-details {
+  margin-top: 20px;
+  text-align: left;
 }
 </style>
