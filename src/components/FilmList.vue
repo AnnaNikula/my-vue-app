@@ -4,7 +4,7 @@
 
     <!-- Knapp för att hämta filmdata -->
     <div class="button-group">
-      <button @click="fetchMovieData">Hämta Filmer</button>
+      <button @click="fetchMovies">Hämta Filmer</button>
       <button @click="showMovieDetails">Visa Filmdetaljer</button>
     </div>
 
@@ -20,9 +20,11 @@
         </thead>
         <tbody>
           <tr v-for="movie in movies" :key="movie.id">
-            <td>{{ movie.title }}</td>
+            <td>{{ movie.primaryTitle }}</td>
             <td>{{ movie.startYear }}</td>
-            <td>{{ movie.genre ? movie.genre.join(", ") : "Ingen genre" }}</td>
+            <td>
+              {{ movie.genres ? movie.genres.join(", ") : "Ingen genre" }}
+            </td>
           </tr>
         </tbody>
       </table>
@@ -32,8 +34,12 @@
     <div class="dropdown-container" v-if="movies.length">
       <label for="movie">Välj en film:</label>
       <select id="movie">
-        <option v-for="movie in movies" :key="movie.id" :value="movie.title">
-          {{ movie.title }}
+        <option
+          v-for="movie in movies"
+          :key="movie.id"
+          :value="movie.primaryTitle"
+        >
+          {{ movie.primaryTitle }}
         </option>
       </select>
     </div>
@@ -42,6 +48,7 @@
 
 <script>
 import { ref } from "vue";
+import { fetchMovieData } from "../fetchData";
 
 export default {
   name: "FilmList",
@@ -49,43 +56,14 @@ export default {
     const movies = ref([]);
     const movieTitles = ref([]);
 
-    const apiUrl =
-      "https://imdb236.p.rapidapi.com/imdb/upcoming-releases?countryCode=US&type=MOVIE";
-    const apiOptions = {
-      method: "GET",
-      headers: {
-        "X-RapidAPI-Key": "e41e92eea2msh4760625016ded93p1dacd4jsn335fa0f8f30c",
-        "X-RapidAPI-Host": "imdb236.p.rapidapi.com",
-        "Content-Type": "application/json",
-      },
-    };
-    const fetchMovieData = async () => {
+    const fetchMovies = async () => {
       try {
-        const response = await fetch(apiUrl, apiOptions);
-        const movieData = await response.json();
-
-        const length = 2; //depth of data
-        let counter = 0;
-
-        for(var k in movieData){
-          //console.log(movieData[k].titles);//this is array
-          console.log(counter)
-          if(counter>=length)break;
-
-          movieData[k].titles.forEach(element => {
-            
-            console.log(element);
-          });
-          counter++;
-        }
-
-        //movies.value = movieData.titles || [];
-        //movieTitles.value = movies.value.map((movie) => movie.title);//FIX THIS
-        //console.log(movieData);
+        const movieData = await fetchMovieData();
+        movies.value = movieData || [];
+        movieTitles.value = movies.value.map((movie) => movie.primaryTitle);
       } catch (error) {
         console.error("Fel vid hämtning av filmer:", error);
       }
-     
     };
 
     const showMovieDetails = () => {
@@ -94,7 +72,7 @@ export default {
 
     return {
       movies,
-      fetchMovieData,
+      fetchMovies,
       showMovieDetails,
     };
   },
